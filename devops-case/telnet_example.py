@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+使用标准库：telnetlib
 不建议直接在 pycharm 运行
 建议用 cmd 窗口执行该函数
 """
@@ -13,7 +14,7 @@ import time
 def do_telnet(host, username, password, commands):
     try:
         tn = telnetlib.Telnet(host, port=23, timeout=10)
-    except:
+    except Exception:
         print('{host} 网络连接失败'.format(host=host))
         return False
 
@@ -38,7 +39,7 @@ def do_telnet(host, username, password, commands):
         command_result = tn.read_very_eager()
         print(command_result)
 
-    # 执行完毕后，终止 Telnet 连接（或输入exit退出）
+    # 执行完毕后，终止 Telnet 连接（或输入 exit 退出）
     tn.close()
 
 
