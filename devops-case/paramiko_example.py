@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-使用第三方库：paramiko
+使用第三方库：pip install paramiko
 """
 
 import paramiko
@@ -10,6 +10,9 @@ from paramiko.ssh_exception import NoValidConnectionsError
 from paramiko.ssh_exception import AuthenticationException
 
 
+# 1. 创建一个远程连接
+# 2. 查看 hostname 信息
+# 3. 查看当前目录有哪些文件
 def do_ssh(host, username, password, commands):
     client = paramiko.SSHClient()
     # 如果是之前没有连接过的 ip，会出现选择 yes 或者 no 的操作
@@ -38,6 +41,6 @@ def do_ssh(host, username, password, commands):
 if __name__ == "__main__":
     host = '192.168.10.x'
     username = 'admin'
-    password = 'password'
+    password = '******'
     commands = ['hostname', 'ls']
     do_ssh(host, username, password, commands)
