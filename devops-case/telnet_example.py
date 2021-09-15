@@ -22,11 +22,11 @@ def do_telnet(host, username, password, commands):
         return False
 
     # 输入登录用户名
-    tn.read_until('Username:')
+    tn.read_until('Username:', timeout=2)
     tn.write(username + '\n')
 
     # 输入登录密码
-    tn.read_until('Password:')
+    tn.read_until('Password:', timeout=2)
     tn.write(password + '\n')
 
     time.sleep(2)
